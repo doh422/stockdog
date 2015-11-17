@@ -15,7 +15,9 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    // registering AngularStrap module
+    'mgcrea.ngStrap'
   ])
   .config(function ($routeProvider) {
     $routeProvider

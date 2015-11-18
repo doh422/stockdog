@@ -16,6 +16,9 @@ angular.module('stockDogApp')
 				template: 'views/templates/addlist-modal.html',
 				show: false
 			});
+
+			// Bind model from services to this scope
+			$scope.watchlists = WatchlistService.query();
 		}
     };
   });

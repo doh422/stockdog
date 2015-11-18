@@ -34,7 +34,7 @@ angular.module('stockDogApp')
 			return findById(listId);
 		} else {
 			return Model.watchlists;
-		};
+		}
 	};
 
 	//[5] Save new watchlist to watchlists model
@@ -51,4 +51,7 @@ angular.module('stockDogApp')
 		});
 		saveModel();
 	};
+
+	//[7] Instantiate Model for this singleton service
+	var Model = loadModel();
 });

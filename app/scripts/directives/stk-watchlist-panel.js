@@ -19,6 +19,18 @@ angular.module('stockDogApp')
 
 			// Bind model from services to this scope
 			$scope.watchlists = WatchlistService.query();
+
+			// Display addlist modal by attaching handler functions to scope
+			$scope.showModal = function() {
+				addListModal.$promise.then(addListModal.show);
+			};
+
+			// Create a new watchlist from fields in modal
+			$scope.createList = function() {
+				WatchlistService.save($scope.watchlist);
+				addListModal.hide();
+				$scope.watchlist = {};
+			};
 		}
     };
   });

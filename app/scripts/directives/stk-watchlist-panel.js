@@ -31,6 +31,12 @@ angular.module('stockDogApp')
 				addListModal.hide();
 				$scope.watchlist = {};
 			};
+
+			// Delete desired watchlist and redirect to home
+			$scope.deleteList = function(list) {
+				WatchlistService.remove(list);
+				$location.path('/');
+			};
 		}
     };
   });

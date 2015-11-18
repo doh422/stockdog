@@ -27,4 +27,13 @@ angular.module('stockDogApp')
 			return watchlist.id === parseInt(listId);
 		});
 	};
+
+	//[4] Return all watchlists or find by given ID
+	this.query = function(listId) {
+		if (listId) {
+			return findById(listId);
+		} else {
+			return Model.watchlists;
+		};
+	};
 });

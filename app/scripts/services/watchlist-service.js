@@ -1,12 +1,5 @@
 'use strict';
 
-/**
- * @ngdoc service
- * @name stockDogApp.WatchlistService
- * @description
- * # WatchlistService
- * Service in the stockDogApp.
- */
 angular.module('stockDogApp')
   .service('WatchlistService', function WatchlistService() {
     // AngularJS will instantiate a singleton by calling "new" on this function
@@ -20,5 +13,11 @@ angular.module('stockDogApp')
 			  parseInt(localStorage['StockDog.nextId']) : 0
 		};
 		return model;
+	};
+
+	//[2] Helper: save watchlists to localStorage
+	var saveModel = function() {
+		localStorage['StockDog.watchlists'] = JSON.stringify(Model.watchlists);
+		localStorage['StockDog.nextId'] = Model.nextId;
 	};
 });

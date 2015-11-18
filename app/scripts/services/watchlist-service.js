@@ -43,4 +43,12 @@ angular.module('stockDogApp')
 		Model.watchlists.push(watchlist);
 		saveModel();
 	};
+
+	//[6] Remove given watchlist from watchlists model
+	this.remove = function(watchlist) {
+		_.remove(Model.watchlists, function(list) {
+			return list.id === watchlist.id;
+		});
+		saveModel();
+	};
 });

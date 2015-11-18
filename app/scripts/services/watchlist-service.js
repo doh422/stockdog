@@ -20,4 +20,11 @@ angular.module('stockDogApp')
 		localStorage['StockDog.watchlists'] = JSON.stringify(Model.watchlists);
 		localStorage['StockDog.nextId'] = Model.nextId;
 	};
+
+	//[3] Helper: use lodash to find a watchlist with a given ID
+	var findById = function(listId) {
+		return _.find(Model.watchlists, function(watchlist) {
+			return watchlist.id === parseInt(listId);
+		});
+	};
 });

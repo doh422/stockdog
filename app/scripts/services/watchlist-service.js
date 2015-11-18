@@ -36,4 +36,11 @@ angular.module('stockDogApp')
 			return Model.watchlists;
 		};
 	};
+
+	//[5] Save new watchlist to watchlists model
+	this.save = function(watchlist) {
+		watchlist.id = Model.nextId++;
+		Model.watchlists.push(watchlist);
+		saveModel();
+	};
 });

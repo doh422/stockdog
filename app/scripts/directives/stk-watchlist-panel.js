@@ -1,13 +1,8 @@
 'use strict';
 
-/**
- * @ngdoc directive
- * @name stockDogApp.directive:stkWatchlistPanel
- * @description
- * # stkWatchlistPanel
- */
 angular.module('stockDogApp')
-  .directive('stkWatchlistPanel', function () {
+  // Register directives and inject dependencies
+  .directive('stkWatchlistPanel', function ($location, $modal, WatchlistService) {
     return {
       template: '<div></div>',
       restrict: 'E',

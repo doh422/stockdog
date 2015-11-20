@@ -91,6 +91,8 @@ angular.module('stockDogApp')
 	//[5] Save new watchlist to watchlists model
 	this.save = function(watchlist) {
 		watchlist.id = Model.nextId++;
+		watchlist.stocks = [];
+		_.extend(watchlist, WatchlistModel);
 		Model.watchlists.push(watchlist);
 		saveModel();
 	};

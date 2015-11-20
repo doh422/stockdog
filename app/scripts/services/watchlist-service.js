@@ -4,6 +4,15 @@ angular.module('stockDogApp')
   .service('WatchlistService', function WatchlistService() {
     // AngularJS will instantiate a singleton by calling "new" on this function
 
+    // Augment Stocks with additional helper functions
+    var StockModel = {
+    	save: function() {
+    		var watchlist = findById(this.listId);
+    		watchlist.recalculate();
+    		saveModel();
+    	}
+    };
+
     // [1] Helper: load watchlists from localStorage
 	var loadModel = function() {
 		var model = {

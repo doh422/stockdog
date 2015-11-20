@@ -21,6 +21,17 @@
 							required>
 					</div>
 				</div>
+
+				<!-- only accept numbers for shares owned -->
+				<div class="form-group">
+					<label for="stock-shares">Shares Owned</label>
+					<input type="number"
+						class="form-control"
+						id="stock-shares"
+						placeholder="# Shares"
+						ng-model="newStock.shares"
+						required>
+				</div>
 				<div class="modal-footer">
 					<button type="submit"
 						class="btn btn-success"

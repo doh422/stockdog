@@ -57,6 +57,12 @@ angular.module('stockDogApp')
 			nextId: localStorage['StockDog.nextId'] ?
 			  parseInt(localStorage['StockDog.nextId']) : 0
 		};
+		_.each(model.watchlists, function(watchlist) {
+			_.extend(watchlist, WatchlistModel);
+			_.each(watchlist.stocks, function(stock) {
+				_.extend(stock, StockModel);
+			});
+		});
 		return model;
 	};
 

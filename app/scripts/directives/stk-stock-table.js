@@ -1,18 +1,41 @@
 'use strict';
 
-/**
- * @ngdoc directive
- * @name stockDogApp.directive:stkStockTable
- * @description
- * # stkStockTable
- */
 angular.module('stockDogApp')
   .directive('stkStockTable', function () {
     return {
-      template: '<div></div>',
+      templateUrl: 'views/templates/stock-table.html',
       restrict: 'E',
-      link: function postLink(scope, element, attrs) {
-        element.text('this is the stkStockTable directive');
+      // isolate scope
+      scope: {
+	    watchlist: '='
+      },
+      // create a controller which serves as an API for this directive
+      controller: function($scope) {
+      	var rows = [];
+
+      	$scope.$watch('showPercent', function(showPercent) {
+      		if (showPercent) {
+      			_.each(rows, function(row) {
+      				row.showPercent = showPercent;
+      			});
+      		}
+      	});
+
+      	this.addRow = function(row) {
+      		rows.push(row);
+      	};
+
+      	this.removeRow = function(row) {
+      		_.remove(rows, row);
+      	};
+      },
+
+      // standard link function implementation
+      link: function($scope) {
+      	$scope.showPercent = false;
+      	$scope.removeStock = function(stock) {
+      		$scope.watchlist.removeStock(stock);
+      	};
       }
     };
   });

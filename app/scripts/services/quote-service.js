@@ -2,11 +2,11 @@
 
 angular.module('stockDogApp')
 	.service('QuoteService', function QuoteService($http, $interval) {
-  		var stocks = [];
-  		var BASE = 'http://query.yahooapis.com/v1/public/yql';
+		var stocks = [];
+		var BASE = 'http://query.yahooapis.com/v1/public/yql';
 
   		// Handles updating stock model with appropriate data from quote
-  		var update = function(quotes) {
+		var update = function(quotes) {
   			console.log(quotes);
   			if (quotes.length === stocks.length) {
   				_.each(quotes, function(quote, idx) {
@@ -38,7 +38,7 @@ angular.module('stockDogApp')
   				symbols.push(stock.company.symbol);
   				return symbols;
   			}, []);
-  			var query = encodeURIComponent('select * from yahoo.finance.quotes ' + 
+ 			var query = encodeURIComponent('select * from yahoo.finance.quotes ' + 
   				'where symbol in (\'' + symbols.join(',') + '\')');
   			var url = BASE + '?' + 'q=' + query + '&format=json&diagnostics=true' + 
   				'&env=http://datatables.org/alltables.env';

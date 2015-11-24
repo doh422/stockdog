@@ -17,7 +17,9 @@ angular
     'ngSanitize',
     'ngTouch',
     // registering AngularStrap module
-    'mgcrea.ngStrap'
+    'mgcrea.ngStrap',
+    // registering Google Charts library
+    'googlechart'
   ])
   .config(function ($routeProvider) {
     $routeProvider

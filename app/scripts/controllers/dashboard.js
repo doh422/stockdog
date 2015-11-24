@@ -50,7 +50,7 @@ angular.module('stockDogApp')
 			// push data onto both chart objects
 			_.each($scope.watchlists, function(watchlist) {
 				donutChart.data.push([watchlist.name, watchlist.marketValue]);
-				columnChart.data.push([watchlist.name, watchlist.dayChange, 
+				columnChart.data.push([watchlist.name, watchlist.dayChange,
 					watchlist.dayChange < 0 ? 'Red' : 'Green']);
 			});
 			$scope.donutChart = donutChart;
@@ -90,6 +90,12 @@ angular.module('stockDogApp')
 					watchlist.marketValue : 0;
 				$scope.dayChange += watchlist.dayChange ?
 					watchlist.dayChange : 0;
-			})
-		}
+			});
+			updateCharts();
+		};
+
+		// watch for changes to watchlists
+		$scope.$watch('watchlists.length', function() {
+			reset();
+		});
 	});

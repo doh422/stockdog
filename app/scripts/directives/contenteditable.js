@@ -18,7 +18,7 @@ angular.module('stockDogApp')
 				// read HTML value and then write data to the model or reset the view
 				var read = function() {
 					var value = $element.html();
-					if ($attrs.type === 'number' && !NUMBER_REGEXP.text(value)) {
+					if ($attrs.type === 'number' && !NUMBER_REGEXP.test(value)) {
 						ngModelCtrl.$render();
 					} else {
 						ngModelCtrl.$setViewValue(value);
